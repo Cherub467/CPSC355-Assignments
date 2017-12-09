@@ -9,5 +9,5 @@ A1 - 97/100 <br />
 A2 - 94/100 <br />
 A3 - 87/100 <br />
 A4 - 78/100 <br />
-A5 - 57/100 <br />
+A5 - 57/100 *Many segmentation faults* <br />
 A6 - 100/100
