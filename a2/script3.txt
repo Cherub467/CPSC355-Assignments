@@ -1,0 +1,131 @@
+Script started on Fri 10 Feb 2017 04:01:19 PM MST
+]0;evan.loughlin@csa2:~/CPSC355/a2evan.loughlin@csa2:~/CPSC355/a2$ gdb assign2c
+GNU gdb (GDB) Fedora 7.11.1-86.fc24
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign2c...(no debugging symbols found)...done.
+(gdb) b m[K*main
+Breakpoint 1 at 0x400630
+(gdb) diplay[K[K[K[Ksiplay[K[K[K[K[K[K[K[Kr
+Starting program: /home/ugb/evan.loughlin/CPSC355/a2/assign2c 
+
+Breakpoint 1, 0x0000000000400630 in main ()
+(gdb) display/i $pc
+1: x/i $pc
+=> 0x400630 <main>:	stp	x29, x30, [sp,#-16]
+(gdb) ni
+0x0000000000400634 in main ()
+1: x/i $pc
+=> 0x400634 <main+4>:	mov	x29, sp
+(gdb) 
+0x0000000000400638 in main ()
+1: x/i $pc
+=> 0x400638 <main+8>:	movk	w20, #0xf0f0
+(gdb) 
+0x000000000040063c in main ()
+1: x/i $pc
+=> 0x40063c <main+12>:	movk	w20, #0xf0ed, lsl #16
+(gdb) 
+0x0000000000400640 in main ()
+1: x/i $pc
+=> 0x400640 <main+16>:	mov	w19, #0xffffff00            	// #-256
+(gdb) 
+0x0000000000400644 in main ()
+1: x/i $pc
+=> 0x400644 <main+20>:	mov	w21, #0x0                   	// #0
+(gdb) 
+0x0000000000400648 in main ()
+1: x/i $pc
+=> 0x400648 <main+24>:	adrp	x0, 0x400000
+(gdb) 
+0x000000000040064c in main ()
+1: x/i $pc
+=> 0x40064c <main+28>:	add	x0, x0, #0x5b0
+(gdb) 
+0x0000000000400650 in main ()
+1: x/i $pc
+=> 0x400650 <main+32>:	mov	w1, w19
+(gdb) info reg
+x0             0x4005b0	4195760
+x1             0x3fffffff408	4398046508040
+x2             0x3fffffff418	4398046508056
+x3             0x400630	4195888
+x4             0x3fffffff320	4398046507808
+x5             0x3ffb8002e30	4396838563376
+x6             0x3fffffff400	4398046508032
+x7             0x104	260
+x8             0xffffffffffffffff	-1
+x9             0xfffffff	268435455
+x10            0x101010101010101	72340172838076673
+x11            0x104	260
+x12            0x3ffb8002968	4396838562152
+x13            0x0	0
+x14            0x6ffffeff	1879047935
+x15            0x3ffb7fffc68	4396838550632
+x16            0x3ffb7e1f728	4396836583208
+x17            0x410b10	4262672
+x18            0x1	1
+x19            0xffffff00	4294967040
+x20            0xf0edf0f0	4042125552
+x21            0x0	0
+x22            0x0	0
+x23            0x0	0
+x24            0x0	0
+x25            0x0	0
+x26            0x0	0
+x27            0x0	0
+x28            0x0	0
+x29            0x3fffffff2d0	4398046507728
+x30            0x3ffb7e1f810	4396836583440
+sp             0x3fffffff2d0	0x3fffffff2d0
+pc             0x400650	0x400650 <main+32>
+cpsr           0x60200000	1612709888
+fpsr           0x0	0
+fpcr           0x0	0
+(gdb) ni
+0x0000000000400654 in main ()
+1: x/i $pc
+=> 0x400654 <main+36>:	mov	w2, w19
+(gdb) 
+0x0000000000400658 in main ()
+1: x/i $pc
+=> 0x400658 <main+40>:	mov	w3, w20
+(gdb) 
+0x000000000040065c in main ()
+1: x/i $pc
+=> 0x40065c <main+44>:	mov	w4, w20
+(gdb) 
+0x0000000000400660 in main ()
+1: x/i $pc
+=> 0x400660 <main+48>:	bl	0x400460 <printf@plt>
+(gdb) 
+multiplier = 0xffffff00 (-256)  multiplicand = 0xf0edf0f0 (-252841744)
+
+0x0000000000400664 in main ()
+1: x/i $pc
+=> 0x400664 <main+52>:	cmp	w19, wzr
+(gdb) 
+0x0000000000400668 in main ()
+1: x/i $pc
+=> 0x400668 <main+56>:	b.ge	0x400674 <else>
+(gdb) :[Kq
+A debugging session is active.
+
+	Inferior 1 [process 18894] will be killed.
+
+Quit anyway? (y or n) y
+]0;evan.loughlin@csa2:~/CPSC355/a2evan.loughlin@csa2:~/CPSC355/a2$ exit
+exit
+
+Script done on Fri 10 Feb 2017 04:02:05 PM MST

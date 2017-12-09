@@ -1,0 +1,332 @@
+Script started on Sun 05 Mar 2017 08:17:15 PM MST
+]0;evan.loughlin@csa2:~/CPSC355/a3evan.loughlin@csa2:~/CPSC355/a3$ gdb assign2[K3
+GNU gdb (GDB) Fedora 7.11.1-86.fc24
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign3...(no debugging symbols found)...done.
+(gdb) display /i[K[K[K/i $pc
+1: x/i $pc
+<error: No registers.>
+(gdb) b main
+Breakpoint 1 at 0x400648
+(gdb) b test_2a
+Breakpoint 2 at 0x40073c
+(gdb) ni
+The program is not being run.
+(gdb) run
+Starting program: /home/ugb/evan.loughlin/CPSC355/a3/assign3 
+
+Breakpoint 1, 0x0000000000400648 in main ()
+1: x/i $pc
+=> 0x400648 <main+24>:	bl	0x4004b0 <printf@plt>
+(gdb) i[Kni
+Unsorted array:
+0x000000000040064c in main ()
+1: x/i $pc
+=> 0x40064c <main+28>:	mov	w27, #0x0                   	// #0
+(gdb) 
+0x0000000000400650 in main ()
+1: x/i $pc
+=> 0x400650 <main+32>:	str	w27, [x29,#16]
+(gdb) 
+0x0000000000400654 in main ()
+1: x/i $pc
+=> 0x400654 <main+36>:	b	0x40068c <test_1>
+(gdb) 
+v[0]: 103
+v[1]: 198
+v[2]: 105
+v[3]: 115
+v[4]: 81
+v[5]: 255
+v[6]: 74
+v[7]: 236
+v[8]: 41
+v[9]: 205
+v[10]: 186
+v[11]: 171
+v[12]: 242
+v[13]: 251
+v[14]: 227
+v[15]: 70
+v[16]: 124
+v[17]: 194
+v[18]: 84
+v[19]: 248
+v[20]: 27
+v[21]: 232
+v[22]: 231
+v[23]: 141
+v[24]: 118
+v[25]: 90
+v[26]: 46
+v[27]: 99
+v[28]: 51
+v[29]: 159
+v[30]: 201
+v[31]: 154
+v[32]: 102
+v[33]: 50
+v[34]: 13
+v[35]: 183
+v[36]: 49
+v[37]: 88
+v[38]: 163
+v[39]: 90
+v[40]: 37
+v[41]: 93
+v[42]: 5
+v[43]: 23
+v[44]: 88
+v[45]: 233
+v[46]: 94
+v[47]: 212
+v[48]: 171
+v[49]: 178
+Sorted array:
+
+Breakpoint 2, 0x000000000040073c in test_2a ()
+1: x/i $pc
+=> 0x40073c <test_2a>:	cmp	w27, #0x32
+(gdb) 
+0x0000000000400740 in test_2a ()
+1: x/i $pc
+=> 0x400740 <test_2a+4>:	b.lt	0x4006ac <loop_2a>
+(gdb) 
+0x00000000004006ac in loop_2a ()
+1: x/i $pc
+=> 0x4006ac <loop_2a>:	mov	w20, w27
+(gdb) 
+0x00000000004006b0 in loop_2a ()
+1: x/i $pc
+=> 0x4006b0 <loop_2a+4>:	str	w20, [x29,#24]
+(gdb) 
+0x00000000004006b4 in loop_2a ()
+1: x/i $pc
+=> 0x4006b4 <loop_2a+8>:	ldr	w27, [x29,#16]
+(gdb) 
+0x00000000004006b8 in loop_2a ()
+1: x/i $pc
+=> 0x4006b8 <loop_2a+12>:	mov	w26, w27
+(gdb) 
+0x00000000004006bc in loop_2a ()
+1: x/i $pc
+=> 0x4006bc <loop_2a+16>:	add	w26, w26, #0x1
+(gdb) 
+0x00000000004006c0 in loop_2a ()
+1: x/i $pc
+=> 0x4006c0 <loop_2a+20>:	str	w26, [x29,#20]
+(gdb) 
+0x00000000004006c4 in loop_2a ()
+1: x/i $pc
+=> 0x4006c4 <loop_2a+24>:	b	0x4006ec <test_2b>
+(gdb) 
+0x00000000004006ec in test_2b ()
+1: x/i $pc
+=> 0x4006ec <test_2b>:	cmp	w26, #0x32
+(gdb) 
+0x00000000004006f0 in test_2b ()
+1: x/i $pc
+=> 0x4006f0 <test_2b+4>:	b.lt	0x4006c8 <loop_2b>
+(gdb) 
+0x00000000004006c8 in loop_2b ()
+1: x/i $pc
+=> 0x4006c8 <loop_2b>:	ldr	w26, [x29,#20]
+(gdb) info reg
+x0             0xe	14
+x1             0x0	0
+x2             0x1	1
+x3             0x0	0
+x4             0x40100401	1074791425
+x5             0x4000000100000000	4611686022722355200
+x6             0x42001e	4325406
+x7             0xcec708bc	3469150396
+x8             0x40	64
+x9             0xffffff80ffffffc8	-545460846648
+x10            0x3fffffff270	4398046507632
+x11            0x3fffffff270	4398046507632
+x12            0x3f3	1011
+x13            0x0	0
+x14            0x3f3	1011
+x15            0x3ffb7fffc68	4396838550632
+x16            0x0	0
+x17            0x3ffb7e4ef48	4396836777800
+x18            0x1	1
+x19            0x400750	4196176
+x20            0x0	0
+x21            0x4004c0	4195520
+x22            0x0	0
+x23            0x0	0
+x24            0x0	0
+x25            0x0	0
+x26            0x1	1
+x27            0x0	0
+x28            0x3fffffff28c	4398046507660
+x29            0x3fffffff270	4398046507632
+x30            0x4006a0	4196000
+sp             0x3fffffff270	0x3fffffff270
+pc             0x4006c8	0x4006c8 <loop_2b>
+cpsr           0x80200000	-2145386496
+fpsr           0x0	0
+fpcr           0x0	0
+(gdb) until [K[K[K[K[K[Knmo[K[Ki
+0x00000000004006cc in loop_2b ()
+1: x/i $pc
+=> 0x4006cc <loop_2b+4>:	ldr	w19, [x29,#24]
+(gdb) 
+0x00000000004006d0 in loop_2b ()
+1: x/i $pc
+=> 0x4006d0 <loop_2b+8>:	ldr	w20, [x28,w19,sxtw #2]
+(gdb) 
+0x00000000004006d4 in loop_2b ()
+1: x/i $pc
+=> 0x4006d4 <loop_2b+12>:	ldr	w21, [x28,w26,sxtw #2]
+(gdb) 
+0x00000000004006d8 in loop_2b ()
+1: x/i $pc
+=> 0x4006d8 <loop_2b+16>:	cmp	w20, w21
+(gdb) 
+0x00000000004006dc in loop_2b ()
+1: x/i $pc
+=> 0x4006dc <loop_2b+20>:	b.lt	0x4006e4 <next>
+(gdb) until done
+v[0]: 5
+
+Breakpoint 2, 0x000000000040073c in test_2a ()
+1: x/i $pc
+=> 0x40073c <test_2a>:	cmp	w27, #0x32
+(gdb) ni
+0x0000000000400740 in test_2a ()
+1: x/i $pc
+=> 0x400740 <test_2a+4>:	b.lt	0x4006ac <loop_2a>
+(gdb) coninue [K[K[K[K[Ktun[K[Kinue 49
+Not stopped at any breakpoint; argument ignored.
+Continuing.
+v[1]: 13
+
+Breakpoint 2, 0x000000000040073c in test_2a ()
+1: x/i $pc
+=> 0x40073c <test_2a>:	cmp	w27, #0x32
+(gdb) ni
+0x0000000000400740 in test_2a ()
+1: x/i $pc
+=> 0x400740 <test_2a+4>:	b.lt	0x4006ac <loop_2a>
+(gdb) 
+0x00000000004006ac in loop_2a ()
+1: x/i $pc
+=> 0x4006ac <loop_2a>:	mov	w20, w27
+(gdb) 
+0x00000000004006b0 in loop_2a ()
+1: x/i $pc
+=> 0x4006b0 <loop_2a+4>:	str	w20, [x29,#24]
+(gdb) 
+0x00000000004006b4 in loop_2a ()
+1: x/i $pc
+=> 0x4006b4 <loop_2a+8>:	ldr	w27, [x29,#16]
+(gdb) 
+0x00000000004006b8 in loop_2a ()
+1: x/i $pc
+=> 0x4006b8 <loop_2a+12>:	mov	w26, w27
+(gdb) 
+0x00000000004006bc in loop_2a ()
+1: x/i $pc
+=> 0x4006bc <loop_2a+16>:	add	w26, w26, #0x1
+(gdb) 
+0x00000000004006c0 in loop_2a ()
+1: x/i $pc
+=> 0x4006c0 <loop_2a+20>:	str	w26, [x29,#20]
+(gdb) 
+0x00000000004006c4 in loop_2a ()
+1: x/i $pc
+=> 0x4006c4 <loop_2a+24>:	b	0x4006ec <test_2b>
+(gdb) 
+0x00000000004006ec in test_2b ()
+1: x/i $pc
+=> 0x4006ec <test_2b>:	cmp	w26, #0x32
+(gdb) 
+0x00000000004006f0 in test_2b ()
+1: x/i $pc
+=> 0x4006f0 <test_2b+4>:	b.lt	0x4006c8 <loop_2b>
+(gdb) 
+v[2]: 23
+0x0000000000400730 in test_2b ()
+1: x/i $pc
+=> 0x400730 <test_2b+68>:	ldr	w27, [x29,#16]
+(gdb) 
+0x0000000000400734 in test_2b ()
+1: x/i $pc
+=> 0x400734 <test_2b+72>:	add	w27, w27, #0x1
+(gdb) 
+0x0000000000400738 in test_2b ()
+1: x/i $pc
+=> 0x400738 <test_2b+76>:	str	w27, [x29,#16]
+(gdb) 
+
+Breakpoint 2, 0x000000000040073c in test_2a ()
+1: x/i $pc
+=> 0x40073c <test_2a>:	cmp	w27, #0x32
+(gdb) 
+0x0000000000400740 in test_2a ()
+1: x/i $pc
+=> 0x400740 <test_2a+4>:	b.lt	0x4006ac <loop_2a>
+(gdb) 
+0x00000000004006ac in loop_2a ()
+1: x/i $pc
+=> 0x4006ac <loop_2a>:	mov	w20, w27
+(gdb) continue 5000[K
+Not stopped at any breakpoint; argument ignored.
+Continuing.
+v[3]: 27
+
+Breakpoint 2, 0x000000000040073c in test_2a ()
+1: x/i $pc
+=> 0x40073c <test_2a>:	cmp	w27, #0x32
+(gdb) ni
+0x0000000000400740 in test_2a ()
+1: x/i $pc
+=> 0x400740 <test_2a+4>:	b.lt	0x4006ac <loop_2a>
+(gdb) 
+0x00000000004006ac in loop_2a ()
+1: x/i $pc
+=> 0x4006ac <loop_2a>:	mov	w20, w27
+(gdb) 
+0x00000000004006b0 in loop_2a ()
+1: x/i $pc
+=> 0x4006b0 <loop_2a+4>:	str	w20, [x29,#24]
+(gdb) 
+0x00000000004006b4 in loop_2a ()
+1: x/i $pc
+=> 0x4006b4 <loop_2a+8>:	ldr	w27, [x29,#16]
+(gdb) 
+0x00000000004006b8 in loop_2a ()
+1: x/i $pc
+=> 0x4006b8 <loop_2a+12>:	mov	w26, w27
+(gdb) 
+0x00000000004006bc in loop_2a ()
+1: x/i $pc
+=> 0x4006bc <loop_2a+16>:	add	w26, w26, #0x1
+(gdb) 
+0x00000000004006c0 in loop_2a ()
+1: x/i $pc
+=> 0x4006c0 <loop_2a+20>:	str	w26, [x29,#20]
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 23228] will be killed.
+
+Quit anyway? (y or n) y
+]0;evan.loughlin@csa2:~/CPSC355/a3evan.loughlin@csa2:~/CPSC355/a3$ exit
+exit
+
+Script done on Sun 05 Mar 2017 08:19:57 PM MST

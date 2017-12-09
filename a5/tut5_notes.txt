@@ -1,0 +1,197 @@
+
+Assignment 5:
+- String literals
+- Arrays of pointers (pointer arrays)
+
+Two things:
+1) How to allocate and access data inside the text, data, and bss sections.
+(Thought about as global variables, or external data.)
+
+2) How to compile assembly code from multiple files. How to compile with
+C code. You will be able to compile them together.
+
+Covered in lecture: Text, data and bss sections.
+External variables (how to declare and use). ASCII Character set
+Creating and addressing string literals.
+
+What if you want to create a method, and keep it?
+You cannot really return 5 variables from a function.
+
+External data and text solves that problem. They are outside of the stack.
+That's what external means in this case.
+
+Static Local Variables
+Global Variables
+Static Global Variables
+
+
+
+-------------*Static Local Variables*-----------------
+
+- Static means to be still. It's the opposite of dynamic. 
+
+Two properties: Scope and lifetime. 
+Scope means where it can be accessed,
+lifetime means how long it will be accessible.
+
+Scope: Local is scope. Scope will be local to what you've defined.
+
+---------------*Global Variables*---------------------
+
+- These are the important ones. These are what we'll use in our assignment
+- Global variables - their scope is, obviously, global.
+- No matter what for loop, if statement, or method you're in, you can
+access these variables. Can be accessed across different files.
+- Lifetime: Will exist for the life of the entire program.
+
+---------*Static Global Variables*---------------
+
+- Same as global, except now they're static. The scope is going to be 
+local to the file. This value cannot be changed. This won't really be of 
+use for this course.
+
+
+
+                    _____________
+                 0 | OS          |
+		   |_____________|
+                   | text        |
+		   |_____________|
+                   | data        |
+                   |_____________|
+                   | bss         |
+                   |_____________|
+                   | heap        |
+                   |_____________|
+                   | free        |
+                   |_____________| <--- SP
+                   | stack       | <--- FP
+                   |             | 
+            FFFFFF |_____________|
+
+
+Text section is the default section. This is where we've put everything.
+Next is your program code. This also goes into the text section.
+
+
+Below that we have the Data section. You're allowed to freely read and
+write from it, and you're allowed to initialize it at the beginning of 
+your program.
+
+BSS - you're not allowed to make it anything other than 0 at the 
+start of your program..
+
+
+How do we initialize these  variables?
+
+1) Specify which one of these sections goes into where.
+    We use pseudo-ops for this. 
+
+		 .text
+
+                 .data
+
+                 .bss
+
+
+As soon as you use this pseudo-op, everything below this section goes 
+into that section.
+
+You don't want your program to go into anything other than the text section.
+
+
+
+2) Declare variables.
+
+Once you have specified the section, you're now free to declare variables.
+To do this, we also use pseudo-ops.
+
+		 .____   <- This is the size
+                 .dword  <- Double word
+                 .word   <- word
+                 .hword  <- halfword
+                 .byte   <- Single byte (char or boolean, perhaps)
+
+Everything must have a label in order to access it.
+
+		var1: .dword
+		var2: .word
+		var3: .hword
+		var4: .byte
+
+		var5: .skip   // If you don't want to initialize your array,
+				// use this.
+
+		var6: .skip 10*4 // This makes it clear you want an array 
+
+You can also initialize the value.
+
+		var1: .dword 0xFC
+		var2: .word 5
+		var3: .hword 120
+		var4: .byte 'c'      // This puts the char c into var4
+
+To access these, all you need is:
+
+		adrp x19 var1
+		add x19, x19, :lo12:var1
+		ldr w0, [x19]
+
+
+Don't forget to make your variables global. To do that:
+
+		.global var1
+
+You can also make functions global, hint hint for assignment 5
+
+		.global function_label
+
+
+Other notes:
+
+gcc is cool, because it allows you to spit out an object file.
+
+	To do this, use -c (will spit out just the object file)
+	
+	- Allows you to compile C code into a .s file
+		- Use the -s (need to confirm this)
+
+
+In order to get two files to work together, we need to use the 
+assembler as. (Directions need to be posted online)
+
+Type:
+
+	as cube.s -o cube.o
+
+		- cube.s is the file
+		- cube.o will not run, as there is no main file
+
+Then: 
+
+	as main.s -o main.o
+
+		- Then we need to explain what these things are
+
+	ld main.o cube.o
+	
+		- The order of these things matters.
+
+You also needs to show the linker where in the library your "printf" is.
+
+But you can use gcc just as the linker, instead.
+
+		gcc main.o cube.o -o out
+
+We now have a file called "out" which is your executable that links all
+of your files together successfully. gcc knows where the library thing is 
+for printf, etc. So it solves that problem for you.
+
+		gcc can do all of these above steps.
+
+To demonstrate:
+
+		gcc main.s cube.s -o out
+
+		 - It performs all of the necessary steps for you,
+		 converts to object, then compiles them into an exe.

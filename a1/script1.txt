@@ -1,0 +1,237 @@
+Script started on Tue 31 Jan 2017 01:02:29 PM MST
+]0;evan.loughlin@csa3:~/a1evan.loughlin@csa3:~/a1$ ty[K[Kgdb assign1a
+GNU gdb (GDB) Fedora 7.11.1-86.fc24
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign1a...(no debugging symbols found)...done.
+(gdb) b main
+Breakpoint 1 at 0x4005f4
+(gdb) info b
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x00000000004005f4 <main+8>
+(gdb) fuck you etienne[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kr
+Starting program: /home/ugb/evan.loughlin/a1/assign1a 
+
+Breakpoint 1, 0x00000000004005f4 in main ()
+(gdb) discplay/i $p[Kpv[Kc
+Undefined command: "discplay".  Try "help".
+(gdb) ni[K[Kdisplay/i $pc
+1: x/i $pc
+=> 0x4005f4 <main+8>:	mov	x19, #0xfffffffffffffff8    	// #-8
+(gdb) ni
+0x00000000004005f8 in main ()
+1: x/i $pc
+=> 0x4005f8 <main+12>:	mov	x20, #0x0                   	// #0
+(gdb) 
+0x00000000004005fc in main ()
+1: x/i $pc
+=> 0x4005fc <main+16>:	mov	x21, #0x0                   	// #0
+(gdb) 
+0x0000000000400600 in main ()
+1: x/i $pc
+=> 0x400600 <main+20>:	mov	x28, #0x0                   	// #0
+(gdb) 
+0x0000000000400604 in test ()
+1: x/i $pc
+=> 0x400604 <test>:	cmp	x19, #0x5
+(gdb) p $x19
+$1 = -8
+(gdb) ni
+0x0000000000400608 in test ()
+1: x/i $pc
+=> 0x400608 <test+4>:	b.gt	0x400680 <done>
+(gdb) 
+0x000000000040060c in test ()
+1: x/i $pc
+=> 0x40060c <test+8>:	mov	x20, #0x0                   	// #0
+(gdb) 
+0x0000000000400610 in test ()
+1: x/i $pc
+=> 0x400610 <test+12>:	add	x20, x20, #0x1f
+(gdb) 
+0x0000000000400614 in test ()
+1: x/i $pc
+=> 0x400614 <test+16>:	mov	x22, #0xd                   	// #13
+(gdb) p $x20
+$2 = 31
+(gdb) ni
+0x0000000000400618 in test ()
+1: x/i $pc
+=> 0x400618 <test+20>:	mul	x22, x22, x19
+(gdb) nip $x20
+$3 = 31
+(gdb) ni
+0x000000000040061c in test ()
+1: x/i $pc
+=> 0x40061c <test+24>:	add	x20, x20, x22
+(gdb) 
+0x0000000000400620 in test ()
+1: x/i $pc
+=> 0x400620 <test+28>:	mov	x22, #0xffffffffffffffe8    	// #-24
+(gdb) nip $x20
+$4 = -73
+(gdb) p $x20[4Pni
+0x0000000000400624 in test ()
+1: x/i $pc
+=> 0x400624 <test+32>:	mul	x22, x22, x19
+(gdb) 
+0x0000000000400628 in test ()
+1: x/i $pc
+=> 0x400628 <test+36>:	mul	x22, x22, x19
+(gdb) 
+0x000000000040062c in test ()
+1: x/i $pc
+=> 0x40062c <test+40>:	add	x20, x20, x22
+(gdb) 
+0x0000000000400630 in test ()
+1: x/i $pc
+=> 0x400630 <test+44>:	mov	x22, #0xfffffffffffffffd    	// #-3
+(gdb) nip $x20
+$5 = -1609
+(gdb) ni
+0x0000000000400634 in test ()
+1: x/i $pc
+=> 0x400634 <test+48>:	mul	x22, x22, x19
+(gdb) 
+0x0000000000400638 in test ()
+1: x/i $pc
+=> 0x400638 <test+52>:	mul	x22, x22, x19
+(gdb) 
+0x000000000040063c in test ()
+1: x/i $pc
+=> 0x40063c <test+56>:	mul	x22, x22, x19
+(gdb) 
+0x0000000000400640 in test ()
+1: x/i $pc
+=> 0x400640 <test+60>:	add	x20, x20, x22
+(gdb) 
+0x0000000000400644 in test ()
+1: x/i $pc
+=> 0x400644 <test+64>:	cmp	x28, #0x0
+(gdb) nip $x20
+$6 = -73
+(gdb) ni
+0x0000000000400648 in test ()
+1: x/i $pc
+=> 0x400648 <test+68>:	b.eq	0x400678 <updateYmax>
+(gdb) 
+0x0000000000400678 in updateYmax ()
+1: x/i $pc
+=> 0x400678 <updateYmax>:	mov	x21, x20
+(gdb) nip $x20[K1
+$7 = 0
+(gdb) p $x21[4Pnip $x21[K0
+$8 = -73
+(gdb) p $x201[4Pni
+0x000000000040067c in updateYmax ()
+1: x/i $pc
+=> 0x40067c <updateYmax+4>:	b	0x400654 <loopend>
+(gdb) nip $x201
+$9 = -73
+(gdb) ni
+0x0000000000400654 in loopend ()
+1: x/i $pc
+=> 0x400654 <loopend>:	adrp	x0, 0x400000
+(gdb) 
+0x0000000000400658 in loopend ()
+1: x/i $pc
+=> 0x400658 <loopend+4>:	add	x0, x0, #0x5b0
+(gdb) 
+0x000000000040065c in loopend ()
+1: x/i $pc
+=> 0x40065c <loopend+8>:	mov	x1, x19
+(gdb) 
+0x0000000000400660 in loopend ()
+1: x/i $pc
+=> 0x400660 <loopend+12>:	mov	x2, x20
+(gdb) 
+0x0000000000400664 in loopend ()
+1: x/i $pc
+=> 0x400664 <loopend+16>:	mov	x3, x21
+(gdb) 
+0x0000000000400668 in loopend ()
+1: x/i $pc
+=> 0x400668 <loopend+20>:	bl	0x400460 <printf@plt>
+(gdb) 
+For X =  -8, Y = -73.
+     The current maximum of Y = -73.
+0x000000000040066c in loopend ()
+1: x/i $pc
+=> 0x40066c <loopend+24>:	add	x19, x19, #0x1
+(gdb) 
+0x0000000000400670 in loopend ()
+1: x/i $pc
+=> 0x400670 <loopend+28>:	add	x28, x28, #0x1
+(gdb) 
+0x0000000000400674 in loopend ()
+1: x/i $pc
+=> 0x400674 <loopend+32>:	b	0x400604 <test>
+(gdb) 
+For X =  -7, Y = -207.
+     The current maximum of Y = -73.
+0x000000000040066c in loopend ()
+1: x/i $pc
+=> 0x40066c <loopend+24>:	add	x19, x19, #0x1
+(gdb) 
+0x0000000000400670 in loopend ()
+1: x/i $pc
+=> 0x400670 <loopend+28>:	add	x28, x28, #0x1
+(gdb) 
+0x0000000000400674 in loopend ()
+1: x/i $pc
+=> 0x400674 <loopend+32>:	b	0x400604 <test>
+(gdb) 
+For X =  -6, Y = -263.
+     The current maximum of Y = -73.
+0x000000000040066c in loopend ()
+1: x/i $pc
+=> 0x40066c <loopend+24>:	add	x19, x19, #0x1
+(gdb) 
+0x0000000000400670 in loopend ()
+1: x/i $pc
+=> 0x400670 <loopend+28>:	add	x28, x28, #0x1
+(gdb) 
+0x0000000000400674 in loopend ()
+1: x/i $pc
+=> 0x400674 <loopend+32>:	b	0x400604 <test>
+(gdb) 
+For X =  -5, Y = -259.
+     The current maximum of Y = -73.
+0x000000000040066c in loopend ()
+1: x/i $pc
+=> 0x40066c <loopend+24>:	add	x19, x19, #0x1
+(gdb) 
+0x0000000000400670 in loopend ()
+1: x/i $pc
+=> 0x400670 <loopend+28>:	add	x28, x28, #0x1
+(gdb) 
+0x0000000000400674 in loopend ()
+1: x/i $pc
+=> 0x400674 <loopend+32>:	b	0x400604 <test>
+(gdb) 
+For X =  -4, Y = -213.
+     The current maximum of Y = -73.
+0x000000000040066c in loopend ()
+1: x/i $pc
+=> 0x40066c <loopend+24>:	add	x19, x19, #0x1
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 2664] will be killed.
+
+Quit anyway? (y or n) y
+]0;evan.loughlin@csa3:~/a1evan.loughlin@csa3:~/a1$ exit
+exit
+
+Script done on Tue 31 Jan 2017 01:06:44 PM MST

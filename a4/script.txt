@@ -1,0 +1,70 @@
+Script started on Thu 16 Mar 2017 08:16:34 PM MDT
+]0;evan.loughlin@csa2:~/CPSC355/a4evan.loughlin@csa2:~/CPSC355/a4$ gdb assign4
+GNU gdb (GDB) Fedora 7.11.1-86.fc24
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign4...(no debugging symbols found)...done.
+(gdb) b main
+Breakpoint 1 at 0x400788
+(gdb) b print_bef
+Breakpoint 2 at 0x4007ac
+(gdb) b print_aft
+Breakpoint 3 at 0x40080c
+(gdb) run
+Starting program: /home/ugb/evan.loughlin/CPSC355/a4/assign4 
+
+Breakpoint 1, 0x0000000000400788 in main ()
+(gdb) c
+Continuing.
+Initial box values:
+
+Breakpoint 2, 0x00000000004007ac in print_bef ()
+(gdb) x/5s[Kde [K[Kw $x20[K9 + 16
+0x3fffffff2a0:	0	0	1	1
+0x3fffffff2b0:	1
+(gdb) 
+0x3fffffff2b4:	0	0	1	1
+0x3fffffff2c4:	1
+(gdb) x/5dw $x29 + 16[1P636
+0x3fffffff2b4:	0	0	1	1
+0x3fffffff2c4:	1
+(gdb) 
+0x3fffffff2c8:	0	0	0	0
+0x3fffffff2d8:	4195480
+(gdb) c
+Continuing.
+Box first origin = (0, 0) width = 1 height = 1 area = 1
+Box second origin = (0, 0) width = 1 height = 1 area = 1
+Changed box values:
+
+Breakpoint 3, 0x000000000040080c in print_aft ()
+(gdb) cx/5dw $x29 + 3616
+0x3fffffff2a0:	-5	7	1	1
+0x3fffffff2b0:	1
+(gdb) 
+0x3fffffff2b4:	0	0	3	3
+0x3fffffff2c4:	9
+(gdb) x/5dw $x29 + 16[1P636
+0x3fffffff2b4:	0	0	3	3
+0x3fffffff2c4:	9
+(gdb) c
+Continuing.
+Box first origin = (-5, 7) width = 1 height = 1 area = 1
+Box second origin = (0, 0) width = 3 height = 3 area = 9
+[Inferior 1 (process 4177) exited normally]
+(gdb) quit
+]0;evan.loughlin@csa2:~/CPSC355/a4evan.loughlin@csa2:~/CPSC355/a4$ exit
+exit
+
+Script done on Thu 16 Mar 2017 08:18:42 PM MDT
